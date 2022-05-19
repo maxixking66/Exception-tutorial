@@ -6,23 +6,19 @@ public class ExceptionTutorialApplication {
         try {
             a();
         } catch (ChildException e) {
-            System.out.println("child");
-        } catch (BrotherException e) {
-            System.out.println("brother");
-        } catch (ParentException e) {
-            System.out.println("parent");
+            System.out.println(e.getClass().getSimpleName());
         }
 
     }
 
     static void a() throws ParentException,
             ChildException, GrandSonException {
-        throw new BrotherException();
+        throw new GrandSonException();
     }
 
 }
 
-class ParentException extends Exception {
+class ParentException extends RuntimeException {
 
 }
 
